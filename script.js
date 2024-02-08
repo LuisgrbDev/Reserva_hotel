@@ -48,33 +48,41 @@ class Hotel {
 
 
     adicionarQuarto(quarto) {
-        this.quartos.push(quarto);
+       this.quartos.push(quarto)
     }
 
     reservaQuarto(quarto, hospede, dataInicio, dataFim) {
       if(!quarto.estaDisponivel()) {
         return alert("indisponivel")
       }
-
       alert("Reserva feita com sucesso!")
+      quarto.reservado = true
     }
 
-    exibirQuartoDisponiveis(quarto, hospede, dataInicio, dataFim) {
-     
+    exibirQuartosDisponiveis(quarto, hospede, dataInicio, dataFim) {
+        if(quarto.estaDisponivel()) {
+            console.log( this.quartos)  
+        } 
     }
 }
 
 let meuHotel = new Hotel();
 let novoQuarto = new Quarto(100, 'presidencial', 150, false);
+let novoQuarto1 = new Quarto(101, 'presidencial', 150, false);
+
+
+
 meuHotel.adicionarQuarto(novoQuarto);
+meuHotel.adicionarQuarto(novoQuarto1);
 
 let novoCli = new Hospede("fulnao", "fulano@mail.com");
+let outroCLi = new Hospede("fulnao", "fulano@mail.com");
 
 meuHotel.reservaQuarto(meuHotel.quartos[0], novoCli, "2024-01-01", "2024-01-05");
+meuHotel.exibirQuartosDisponiveis(meuHotel.quartos[1],outroCLi,"2024-01-01", "2024-01-05")
 
 
 
 
 
-let outroCLi = new Hospede("fulnao", "fulano@mail.com");
-meuHotel.reservaQuarto(meuHotel.quartos[0], outroCLi, "2024-01-01", "2024-01-05");
+
