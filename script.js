@@ -69,7 +69,7 @@ class Hotel {
 
     }
 
-    exibirQuartosDisponiveis(quarto, hospede, dataInicio, dataFim) {
+    exibirQuartosDisponiveis() {
         /*this.quartos.forEach(quarto => {if(!quarto.reservado) percorre cada 
             itens da lista e verifica se estão reservados */
         this.quartos.forEach(quarto => {
