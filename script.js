@@ -35,7 +35,7 @@ class Reserva {
         const diferencaEmMilissegundos = this.dataFim - this.dataInicio;
         const diasReservados = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
         let total = this.quarto.precoDiaria * diasReservados;
-        return `Reserva realizada com sucesso!  Total Diaria: ${total}`
+        return `Reserva do quarto ${this.quarto.numero} realizada com sucesso!  Total Diaria: ${total}`
     }
 }
 
@@ -88,10 +88,12 @@ let meuHotel = new Hotel();
 let novoQuarto = new Quarto(100, 'Standard', 150);
 let novoQuarto1 = new Quarto(102, 'Suite', 200);
 let novoQuarto2 = new Quarto(103, 'presidencial', 300);
+
 // add quartos a lista de arrays
 meuHotel.adicionarQuarto(novoQuarto);
 meuHotel.adicionarQuarto(novoQuarto1);
 meuHotel.adicionarQuarto(novoQuarto2);
+
 //criando Hospede
 let novoCli = new Hospede("fulnao", "fulano@mail.com");
 let outroCLi = new Hospede("fulnao", "fulano@mail.com");
@@ -102,15 +104,15 @@ meuHotel.exibirQuartosDisponiveis()
 
 // reservando quarto hotel
 const reserva1 = meuHotel.reservaQuarto(meuHotel.quartos[2], novoCli, new Date("2024-01-01"),new Date( "2024-01-05"));
-// exibindo quartos disponiveis depois da reserva
+// exibindo reserva feita 
 console.log(`\n \n ${reserva1.calcularCustoTotal()}`);
+// exibindo quartos disponiveis depois da reserva
 meuHotel.exibirQuartosDisponiveis()
 
-
+// reservando do mesmo quarto hotel
 const reserva2 = meuHotel.reservaQuarto(meuHotel.quartos[2], novoCli, new Date("2024-01-01"),new Date( "2024-01-05"));
+// exibindo reserva sem sucesso
 console.log(`\n \n ${reserva2}`);
-
-
 
 
 meuHotel.exibirQuartosDisponiveis();
